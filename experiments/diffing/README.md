@@ -15,10 +15,10 @@
 
 Usage:
 ```
-bash ./v2v_wrapper_diffing.sh <Groundtruth-path> <GT_SUFFIX> <Saved-model-path> <Data-files-path> <Num-Threads> <Projects>
+bash ./v2v_wrapper_diffing.sh <path-to-diffing-ground-truth-directory> <suffix-to-groundtruth-project-directory> <path-to-vexir2vec.model> <path-to-x86-data-all | path-to-arm-data-all> <number-of-threads> <Projects-names> 
 ```
 > [!NOTE]
 >  `Projects` should be given as 'project1 project2'
 
 Example
-``
+```bash ./v2v_wrapper_diffing.sh ~/diffing-groundtruth -ground-truth ~/vexir2vec.model ~/x86-data-all 10 'findutils diffutils'```
