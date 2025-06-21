@@ -1,17 +1,16 @@
-![VexIR2Vec](https://github.com/IITH-Compilers/VexIR2Vec/blob/main/images/VexIR2Vec_Logo.png)
-
 <p align="center">
-  <i>architectural-neutral framework for binary similarity tasks</i>
-</p>
-<p align="center">
-  <i>
-    Check
-    <a href="https://project.iith.ac.in/VexIR2Vec/">the website</a>
-    for more information.
-  </i>
+  <img src="https://github.com/IITH-Compilers/VexIR2Vec/blob/main/images/VexIR2Vec_Logo.png" alt="VexIR2Vec" width="300"/>
 </p>
 
+<p align="center">
+  <b>Architecture-neutral framework for binary similarity tasks</b>
+</p>
 
+<p align="center">
+  <b>
+    Check <a href="https://project.iith.ac.in/VexIR2Vec/">the website</a> for more information.
+  </b>
+</p>
 
 # VexIR2Vec
 
