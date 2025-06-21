@@ -1,11 +1,9 @@
-<p align="center">
-  <img src="https://github.com/IITH-Compilers/VexIR2Vec/blob/main/images/VexIR2Vec_Logo.png" alt="VexIR2Vec" width="300"/>
+<p align="center" style="margin-bottom: 0;">
+  <img src="https://github.com/IITH-Compilers/VexIR2Vec/blob/main/images/VexIR2Vec_Logo.png" alt="VexIR2Vec" width="300" style="margin-bottom: 0;"/>
 </p>
-
 <p align="center">
   <b>Architecture-neutral framework for binary similarity tasks</b>
 </p>
-
 <p align="center">
   <b>
     Check <a href="https://project.iith.ac.in/VexIR2Vec/">the website</a> for more information.
