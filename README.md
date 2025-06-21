@@ -1,3 +1,4 @@
+![VexIR2Vec](https://github.com/IITH-Compilers/VexIR2Vec/blob/main/images/VexIR2Vec_Logo.png)
 # VexIR2Vec
 
 VexIR2Vec is a robust, architecture-neutral framework for binary similarity, leveraging VEX-IR to overcome challenges from compiler, architecture, and obfuscation variations. It combines peephole-based extraction, normalization, and embedding with a Siamese network.
