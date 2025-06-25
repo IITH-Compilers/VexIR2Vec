@@ -2,6 +2,10 @@
   <img src="https://github.com/IITH-Compilers/VexIR2Vec/blob/main/images/VexIR2Vec_Logo.png" alt="VexIR2Vec" width="200"/>
   
   VexIR2Vec: An Architecture-Neutral Embedding Framework for Binary Similarity
+  
+  [![ArXiv Link](https://img.shields.io/badge/arXiv-2312.00507-red?logo=arxiv)](https://arxiv.org/abs/2312.00507)
+  [![DOI Link](https://img.shields.io/badge/TOSEM-10.1145/3721481-blue?logo=doi)](https://dl.acm.org/doi/10.1145/3721481)
+  [![WebApp](https://img.shields.io/badge/WebApp-VexIR2Vec_Demo-green)](https://compilers.cse.iith.ac.in/VexIR2Vec)
 </h1>
 
 VexIR2Vec is a robust, architecture-neutral framework for binary similarity, leveraging VEX-IR to overcome challenges from compiler, architecture, and obfuscation variations. It combines peephole-based extraction, normalization, and embedding with a Siamese network.
