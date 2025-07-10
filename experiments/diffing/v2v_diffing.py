@@ -3,10 +3,8 @@
 
 """VexIR2Vec Diffing Script"""
 
-# Usage/ flow for diffing scripts: inference-www.sh -> inference-wrapper-wrapper.sh -> vexir2vec_scores_wrapper.sh -> vexir2vec_diffing.py
-
 # To use this script as standalone for inferencing particular set:
-# Usage: python /path/to/new_vexir2vec_diffing.py -bmp /path/to/model -dp /path/to/project-wise-data-files/ -test_csv /path/to/project-config-wise-groundtruth.csv -out_dir /path/to/results -res_dir /path/to/results
+# Usage: python v2v_diffing.py -bmp /path/to/model -dp /path/to/project-wise-data-files/ -test_csv /path/to/project-config-wise-groundtruth.csv -out_dir /path/to/results -res_dir /path/to/results
 import sys
 import os
 
