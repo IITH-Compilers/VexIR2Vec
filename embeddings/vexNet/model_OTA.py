@@ -73,6 +73,8 @@ class FCNNWithAttention(nn.Module):
         num_O_layers = config["num_O_layers"]
         num_T_layers = num_O_layers
         num_A_layers = num_O_layers
+        num_str_layers = num_O_layers
+        num_lib_layers = num_O_layers
 
         self.opc_fc_layers = self.createFcLayers(
             EMBED_DIM, num_O_layers, activation, use_batchnorm=True
@@ -82,6 +84,12 @@ class FCNNWithAttention(nn.Module):
         )
         self.arg_fc_layers = self.createFcLayers(
             EMBED_DIM, num_A_layers, activation, use_batchnorm=True
+        )
+        self.str_fc_layers = self.createFcLayers(
+            100, num_str_layers, activation, use_batchnorm=True
+        )
+        self.lib_fc_layers = self.createFcLayers(
+            100, num_lib_layers, activation, use_batchnorm=True
         )
 
         self.global_attention = GlobalAttentionLayer(EMBED_DIM)
@@ -126,19 +134,36 @@ class FCNNWithAttention(nn.Module):
         if test:
             self.batch_size = 1
 
+        opc = F.normalize(opc, p=2)
+        ty = F.normalize(ty, p=2)
+        arg = F.normalize(arg, p=2)
+        strEmbed = F.normalize(strEmbed, p=2)
+        libEmbed = F.normalize(libEmbed, p=2)
+
         opc_out = self.processInput(opc, self.opc_fc_layers)
         ty_out = self.processInput(ty, self.ty_fc_layers)
         arg_out = self.processInput(arg, self.arg_fc_layers)
+        str_out = self.processInput(strEmbed, self.str_fc_layers)
+        lib_out = self.processInput(libEmbed, self.lib_fc_layers)
 
         # Compute attention logits for each context vector
         attention_logits_opc = self.global_attention(opc_out)
         attention_logits_ty = self.global_attention(ty_out)
         attention_logits_arg = self.global_attention(arg_out)
+        attention_logits_str = self.global_attention(str_out)
+        attention_logits_lib = self.global_attention(lib_out)
 
         # Compute attention-weighted representations
         attention_weights = F.softmax(
             torch.stack(
-                [attention_logits_opc, attention_logits_ty, attention_logits_arg], dim=0
+                [
+                    attention_logits_opc,
+                    attention_logits_ty,
+                    attention_logits_arg,
+                    attention_logits_str,
+                    attention_logits_lib,
+                ],
+                dim=0,
             ),
             dim=0,
         )
@@ -148,6 +173,8 @@ class FCNNWithAttention(nn.Module):
             (attention_weights[0] * opc_out)
             + (attention_weights[1] * ty_out)
             + (attention_weights[2] * arg_out)
+            + (attention_weights[3] * str_out)
+            + (attention_weights[4] * lib_out)
         )
 
         output = aggregated_vector
